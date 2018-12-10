@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- pfl add -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/record_clean_all"
+        android:title="@string/record_clean_all"
+        android:orderInCategory="1" />
+	<item
+        android:id="@+id/record_file_list"
+        android:title="@string/open_record_file_list"
+        android:orderInCategory="1"
+        android:visible="false"/>
+	
+	<item android:id="@+id/add_icon"
+	    android:title="@string/record_add"
+	    android:icon="@drawable/ic_menu_add"
+	    android:showAsAction="ifRoom"
+	    />
+   	 <item android:id="@+id/pick_path"
+	    android:title="@string/pick_path"
+	    android:icon="@drawable/ic_menu_add"
+	    />
+   	 <item android:id="@+id/view_save_path"
+	    android:title="@string/view_save_path"
+	    android:icon="@drawable/ic_menu_add"
+	    />
+
+</menu>
