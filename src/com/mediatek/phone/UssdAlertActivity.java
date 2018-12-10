@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.util.Log;
 
 import android.widget.EditText;
 import android.widget.TextView;
@@ -49,7 +50,11 @@ public class UssdAlertActivity extends AlertActivity implements DialogInterface.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Log.d("lllllll", "USSD act called");
         // Set up the "dialog"
+
+        finish();
+
         final AlertController.AlertParams p = mAlertParams;
 
         mPhone = PhoneGlobals.getInstance().phone;
@@ -57,9 +62,7 @@ public class UssdAlertActivity extends AlertActivity implements DialogInterface.
         mText = intent.getStringExtra(USSD_MESSAGE_EXTRA);
         mType = intent.getIntExtra(USSD_TYPE_EXTRA, USSD_DIALOG_REQUEST);
         mSlotId = intent.getIntExtra(USSD_SLOT_ID, 0);
-        // p.mIconId = android.R.drawable.ic_dialog_alert;
-        // p.mTitle = getString(R.string.bt_enable_title);
-        // p.mTitle = "USSD";
+    
         p.mView = createView();
         if (mType == USSD_DIALOG_REQUEST) {
             p.mPositiveButtonText = getString(R.string.send_button);
@@ -73,7 +76,7 @@ public class UssdAlertActivity extends AlertActivity implements DialogInterface.
 
         playUSSDTone(PhoneGlobals.getInstance().getApplicationContext());
         PhoneUtils.sUssdActivity = this;
-        setupAlert();
+        //setupAlert();
     }
 
     protected void onResume() {
