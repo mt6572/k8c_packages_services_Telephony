@@ -536,14 +536,14 @@ private  String getContactNameFromPhoneBook( String phoneNum) {
        contactName = getContactNameFromPhoneBook(c.getAddress());
 	 log("heyong Name = " + contactName );
 
-	 if("1".equals(callmode)||(contactName==null)||"".equals(contactName))
+	/* if("1".equals(callmode)||(contactName==null)||"".equals(contactName))
 	 {
 	      log("heyong Name = " + contactName );
 	    //  SystemProperties.set("persist.service.wakeup", "1");
 	      PhoneGlobals.getInstance().setCallMode(1);
 	      PhoneUtils.hangupRingingCall(ringing);
             return;
-	 }
+	 }*/
 	 PhoneGlobals.getInstance().setCallMode(0);
         //SystemProperties.set("persist.service.wakeup", "0");
 	/* if("1".equals(SystemProperties.get("persist.service.callmode", "0")))
@@ -555,11 +555,13 @@ private  String getContactNameFromPhoneBook( String phoneNum) {
 	 
         // Check for a few cases where we totally ignore incoming calls.
         if (ignoreAllIncomingCalls(phone)) {
+            // Log.
             // Immediately reject the call, without even indicating to the user
             // that an incoming call occurred.  (This will generally send the
             // caller straight to voicemail, just as if we *had* shown the
             // incoming-call UI and the user had declined the call.)
-            PhoneUtils.hangupRingingCall(ringing);
+
+            // PhoneUtils.hangupRingingCall(ringing);
             return;
         }
 
